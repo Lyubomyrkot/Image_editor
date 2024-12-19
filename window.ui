@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>614</width>
+    <width>632</width>
     <height>625</height>
    </rect>
   </property>
@@ -35,6 +35,9 @@
       </item>
       <item>
        <widget class="QListWidget" name="listWidget">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -47,10 +50,19 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="whatsThis">
+         <string/>
+        </property>
+        <property name="accessibleName">
+         <string/>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLabel" name="label">
         <property name="text">
          <string>Статус фото</string>
         </property>
@@ -65,6 +77,12 @@
          <size>
           <width>0</width>
           <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>200</width>
+          <height>16777215</height>
          </size>
         </property>
        </widget>
@@ -214,7 +232,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>614</width>
+     <width>632</width>
      <height>21</height>
     </rect>
    </property>
