@@ -1,11 +1,11 @@
 from PIL import Image, ImageFilter, ImageEnhance
 from PyQt6 import QtWidgets, uic
 import sys
+import os
 
-from PyQt6.QtWidgets import QApplication
+from PyQt6.QtWidgets import QApplication, QFileDialog
 from PyQt6.QtWidgets import QMainWindow, QMessageBox, QListWidgetItem
 from qt_material import apply_stylesheet
-
 
 
 #with Image.open("jonatan-pie-_b2hvhIXGI8-unsplash.jpg") as img:
@@ -51,6 +51,33 @@ class ImageEditor():
         self.save_path = 'edited/'
         self.ui = Ui()
         self.ui.show()
+        self.connects()
+
+    def connects(self):
+        self.ui.folder_btn.clicked.connect(self.open_folder) #Підключення кнопок до функції
+        self.ui.open_folder.triggered.connect(self.open_folder)
+        self.ui.open_file.triggered.connect(self.open_file)
+
+    def get_images(self):
+        self.folder_images = []
+        if self.workdir: #Перевірка чи є файл
+            filenames = os.listdir(self.workdir) #Отрмання файлів
+            for file in filenames:
+                if file.endswith(".png") or file.endswith(".jpg") or file.endswith(".jpeg"):
+                    self.folder_images.append(file)
+
+
+    def open_folder(self):
+        self.workdir = QFileDialog.getExistingDirectory() #Відкриття папки
+        if self.workdir:
+            self.get_images()
+            self.ui.image_list.addItems(self.folder_images) #Додавання картинки в список файлів 
+
+    def open_file(self):
+        file_path, _ = QFileDialog.getOpenFileName(self.ui, "Виберіть фото", "", "Зображення (*.png *.jpg *.jpeg)") #Відкриття файлу
+        if file_path:
+            self.open(file_path)
+            print(self.image.filename)
 
     def open(self, filename):
         self.image = Image.open(filename)
