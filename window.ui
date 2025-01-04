@@ -129,7 +129,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="rotate_left_btn">
+         <widget class="QPushButton" name="back_btn">
           <property name="text">
            <string/>
           </property>
@@ -140,7 +140,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="rorate_right_btn">
+         <widget class="QPushButton" name="forward_btn">
           <property name="text">
            <string/>
           </property>
@@ -180,13 +180,6 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QPushButton" name="pushButton_8">
-          <property name="text">
-           <string>PushButton</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <spacer name="horizontalSpacer_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -200,7 +193,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_5">
+         <widget class="QPushButton" name="rotate_left">
           <property name="text">
            <string>90</string>
           </property>
@@ -211,7 +204,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_6">
+         <widget class="QPushButton" name="rotate_right">
           <property name="text">
            <string>90</string>
           </property>
@@ -264,7 +257,7 @@
      <string>Корекція</string>
     </property>
     <addaction name="contrast"/>
-    <addaction name="action_14"/>
+    <addaction name="bright"/>
     <addaction name="saturation"/>
    </widget>
    <addaction name="menu_file"/>
@@ -323,7 +316,7 @@
     <string>Контрасність</string>
    </property>
   </action>
-  <action name="action_14">
+  <action name="bright">
    <property name="text">
     <string>Яскравість</string>
    </property>
