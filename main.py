@@ -174,19 +174,22 @@ class ImageEditor():
         if self.image_path:
             check = QMessageBox.question(self.ui, "Видалити фото", "Ви впевнені, що хочете видалити фото?", QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
             if check == QMessageBox.StandardButton.Yes:
-                os.remove(self.image_path)
-                print("Файл видалено")
-                if self.workdir:
-                    self.get_images()
-                    self.ui.image_list.clear()
-                    self.ui.image_list.addItems(self.folder_images) #Додавання картинки в список файлів 
+                try:
+                    os.remove(self.image_path)
+                    print("Файл видалено")
+                    if self.workdir:
+                        self.get_images()
+                        self.ui.image_list.clear()
+                        self.ui.image_list.addItems(self.folder_images) #Додавання картинки в список файлів 
 
-                self.ui.current_image.setPixmap(QPixmap("")) #Очищення відображення фото
-                self.image = None
-                self.image_path = None
-                self.original = None
-                self.history = []
-                self.history_index = -1
+                    self.ui.current_image.setPixmap(QPixmap("")) #Очищення відображення фото
+                    self.image = None
+                    self.image_path = None
+                    self.original = None
+                    self.history = []
+                    self.history_index = -1
+                except:
+                    err = QMessageBox.critical(self.ui, "Помилка", "Помилка видалення файлу", "Спробуйте ще раз" QMessageBox.StandardButton.Ok)
 
     def do_black_white(self):
         if self.image:
